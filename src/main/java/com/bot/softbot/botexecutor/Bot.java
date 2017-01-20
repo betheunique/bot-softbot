@@ -56,8 +56,8 @@ public class Bot {
                     logger.info("response received from slack :" + result);
                     ObjectMapper mapper = new ObjectMapper();
                     RTMStartResponse rtmStartResponse = mapper.readValue(result, RTMStartResponse.class);
-                    logger.info("Https call was successful :" + rtmStartResponse.getOk());
-                    logger.info("WebSocket url received from Slsck :" + rtmStartResponse.getUrl());
+                    logger.info("Https call result :" + rtmStartResponse.getOk());
+                    logger.info("WebSocket url received from Slack :" + rtmStartResponse.getUrl());
                     SoftBotClient socket = new SoftBotClient();
                     WebSocketContainer container = ContainerProvider.getWebSocketContainer();
                     Session session = container.connectToServer(socket, new URI(rtmStartResponse.getUrl()));
